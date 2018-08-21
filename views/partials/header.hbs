@@ -1,6 +1,9 @@
 <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
-  <a class="navbar-brand" href="/">NodeJS Bounty App</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+  <a class="navbar-brand" href="/">Bounty App</a>
+
+  <button class="navbar-toggler" type="button" data-toggle="collapse"
+    data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault"
+    aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
 
@@ -8,34 +11,71 @@
     <ul class="navbar-nav mr-auto">
       {{#if leaderboard}}
         <li class="nav-item active">
-          <a class="nav-link" href="/leaderboard">Leaderboard</a>
+          <a class="nav-link" href="/leaderboard">
+            <i class="fas fa-sort-amount-down"></i>&nbsp;
+            Leaderboard
+          </a>
         </li>
       {{else}}
         <li class="nav-item">
-          <a class="nav-link" href="/leaderboard">Leaderboard</a>
+          <a class="nav-link" href="/leaderboard">
+            <i class="fas fa-sort-amount-down"></i>&nbsp;
+            Leaderboard
+          </a>
         </li>
       {{/if}}
 
       {{#if tasks}}
-        <li class="nav-item active">
-          <a class="nav-link" href="/tasks">Tasks</a>
+        <li class="nav-item dropdown active">
+          <a class="nav-link dropdown-toggle" id="tasks"
+            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <i class="fas fa-tasks"></i>&nbsp;
+            Tasks
+          </a>
+          <div class="dropdown-menu" aria-labelledby="tasks">
+            <a class="dropdown-item" href="/tasks/show">Show</a>
+            <a class="dropdown-item" href="/tasks/add">Add</a>
+          </div>
         </li>
       {{else}}
-        <li class="nav-item">
-          <a class="nav-link" href="/tasks">Tasks</a>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" id="tasks"
+            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <i class="fas fa-tasks"></i>&nbsp;
+            Tasks
+          </a>
+          <div class="dropdown-menu" aria-labelledby="tasks">
+            <a class="dropdown-item" href="/tasks/show">Show</a>
+            <a class="dropdown-item" href="/tasks/add">Add</a>
+          </div>
         </li>
       {{/if}}
 
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" id="claims"
-          data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Claims
-        </a>
-        <div class="dropdown-menu" aria-labelledby="claims">
-          <a class="dropdown-item" href="/claims/view">View</a>
-          <a class="dropdown-item" href="/claims/add">Add</a>
-        </div>
-      </li>
+      {{#if claims}}
+        <li class="nav-item dropdown active">
+          <a class="nav-link dropdown-toggle" id="claims"
+            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <i class="fas fa-clipboard-check"></i>&nbsp;
+            Claims
+          </a>
+          <div class="dropdown-menu" aria-labelledby="claims">
+            <a class="dropdown-item" href="/claims/show">Show</a>
+            <a class="dropdown-item" href="/claims/add">Add</a>
+          </div>
+        </li>
+      {{else}}
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" id="claims"
+            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <i class="fas fa-clipboard-check"></i>&nbsp;
+            Claims
+          </a>
+          <div class="dropdown-menu" aria-labelledby="claims">
+            <a class="dropdown-item" href="/claims/show">Show</a>
+            <a class="dropdown-item" href="/claims/add">Add</a>
+          </div>
+        </li>
+      {{/if}}
     </ul>
   </div>
 </nav>

@@ -1,0 +1,29 @@
+<p class="h2">Add New Task</p>
+
+<form method="POST" action="/tasks/add">
+  <div class="form-group">
+    <label for="title">Task Title</label>
+    <input type="text" name="title" class="form-control" id="title"
+      placeholder="Task Title, eg. 'Dynamic Programming'">
+  </div>
+
+  <div class="form-group">
+    <label for="description">Task Description</label>
+    <textarea id="description" name="description" rows="7"
+      class="form-control" placeholder="Task Description, eg. 'Create a question on DP of moderate level.'"></textarea>
+  </div>
+
+  <div class="form-group">
+    <label for="bounty">Bounty Amount</label>
+    <input type="number" name="bounty" class="form-control" id="bounty"
+      placeholder="Bounty points for this task. eg. 500">
+  </div>
+
+  <div class="form-group">
+    <label for="instances">Instances</label>
+    <input type="number" name="instances" class="form-control" id="instances"
+      placeholder="Instances of this task. eg. 2">
+  </div>
+
+  <button type="submit" class="btn btn-primary">Add Task</button>
+</form>

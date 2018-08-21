@@ -5,11 +5,6 @@ const config = require('../config');
 const sequelize = new Sequelize(config.DATABASE_URI);
 
 const User = sequelize.define('user', {
-  // id: {
-  //   type: Sequelize.INTEGER,
-  //   primaryKey: true,
-  //   autoIncrement: true
-  // },
   username: Sequelize.STRING,
 });
 
@@ -35,6 +30,11 @@ User.hasMany(Claim);
 Claim.belongsTo(Task);
 Task.hasMany(Claim);
 
-sequelize.sync({ logging: true });
+sequelize.sync({ logging: false });
 
-module.exports = sequelize;
+module.exports = {
+  sequelize,
+  User,
+  Task,
+  Claim
+};
