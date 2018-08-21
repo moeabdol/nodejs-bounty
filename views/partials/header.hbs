@@ -9,7 +9,7 @@
 
   <div class="collapse navbar-collapse" id="navbarsExampleDefault">
     <ul class="navbar-nav mr-auto">
-      {{#if leaderboard}}
+      {{#if leaderboardActive}}
         <li class="nav-item active">
           <a class="nav-link" href="/leaderboard">
             <i class="fas fa-sort-amount-down"></i>&nbsp;
@@ -25,7 +25,7 @@
         </li>
       {{/if}}
 
-      {{#if tasks}}
+      {{#if tasksActive}}
         <li class="nav-item dropdown active">
           <a class="nav-link dropdown-toggle" id="tasks"
             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -33,7 +33,7 @@
             Tasks
           </a>
           <div class="dropdown-menu" aria-labelledby="tasks">
-            <a class="dropdown-item" href="/tasks/show">Show</a>
+            <a class="dropdown-item" href="/tasks">Show</a>
             <a class="dropdown-item" href="/tasks/add">Add</a>
           </div>
         </li>
@@ -45,13 +45,13 @@
             Tasks
           </a>
           <div class="dropdown-menu" aria-labelledby="tasks">
-            <a class="dropdown-item" href="/tasks/show">Show</a>
+            <a class="dropdown-item" href="/tasks">Show</a>
             <a class="dropdown-item" href="/tasks/add">Add</a>
           </div>
         </li>
       {{/if}}
 
-      {{#if claims}}
+      {{#if claimsActive}}
         <li class="nav-item dropdown active">
           <a class="nav-link dropdown-toggle" id="claims"
             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -59,7 +59,7 @@
             Claims
           </a>
           <div class="dropdown-menu" aria-labelledby="claims">
-            <a class="dropdown-item" href="/claims/show">Show</a>
+            <a class="dropdown-item" href="/claims">Show</a>
             <a class="dropdown-item" href="/claims/add">Add</a>
           </div>
         </li>
@@ -71,7 +71,7 @@
             Claims
           </a>
           <div class="dropdown-menu" aria-labelledby="claims">
-            <a class="dropdown-item" href="/claims/show">Show</a>
+            <a class="dropdown-item" href="/claims">Show</a>
             <a class="dropdown-item" href="/claims/add">Add</a>
           </div>
         </li>

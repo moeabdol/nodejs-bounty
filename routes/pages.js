@@ -6,15 +6,22 @@ router.get('/', (req, res) => {
 });
 
 router.get('/leaderboard', (req, res) => {
-  res.render('pages/leaderboard', { leaderboard: true });
+  res.render('pages/leaderboard', { leaderboardActive: true });
 });
 
-router.get('/tasks/show', (req, res) => {
-  res.render('pages/tasks/show', { tasks: true });
+router.get('/tasks', (req, res) => {
+  db.Task.findAll()
+    .then(tasks => {
+      res.render('pages/tasks/index', {
+        tasksActive: true,
+        tasks
+      });
+    })
+    .catch(err => res.status(400).json(err));
 });
 
 router.get('/tasks/add', (req, res) => {
-  res.render('pages/tasks/add', { tasks: true });
+  res.render('pages/tasks/add', { tasksActive: true });
 });
 
 router.post('/tasks/add', (req, res) => {
@@ -24,16 +31,16 @@ router.post('/tasks/add', (req, res) => {
     bounty:       parseInt(req.body.bounty),
     instances:    parseInt(req.body.instances),
     status:       'new'
-  }).then(() => res.redirect('/tasks/show'))
+  }).then(() => res.redirect('/tasks'))
     .catch(err => res.status(400).json(err));
 });
 
-router.get('/claims/show', (req, res) => {
-  res.render('pages/claims/show', { claims: true });
+router.get('/claims', (req, res) => {
+  res.render('pages/claims/index', { claimsActive: true });
 });
 
 router.get('/claims/add', (req, res) => {
-  res.render('pages/claims/add', { claims: true });
+  res.render('pages/claims/add', { claimsActive: true });
 });
 
 module.exports = router;

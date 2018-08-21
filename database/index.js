@@ -10,7 +10,7 @@ const User = sequelize.define('user', {
 
 const Task = sequelize.define('task', {
   title: Sequelize.STRING,
-  description: Sequelize.STRING,
+  description: Sequelize.TEXT,
   bounty: Sequelize.INTEGER,
   instances: Sequelize.INTEGER,
   status: Sequelize.ENUM('new', 'done')
