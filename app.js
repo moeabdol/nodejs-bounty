@@ -2,6 +2,7 @@ const express    = require('express');
 const morgan     = require('morgan');
 const bodyParser = require('body-parser');
 const hbs        = require('express-handlebars');
+const path       = require('path');
 
 const app = express();
 
@@ -15,6 +16,15 @@ app.use(morgan('dev'));
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+
+app.engine('hbs', hbs({
+  defaultLayout: 'main',
+  extname: 'hbs'
+}));
+app.set('view engine', 'hbs');
+
+app.use(express.static(path.join(__dirname, 'node_modules/')));
+app.use(express.static(path.join(__dirname, 'public/')));
 
 app.use('/', routes.pages);
 app.use('/api', routes.api);
